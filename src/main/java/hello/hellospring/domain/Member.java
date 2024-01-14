@@ -1,7 +1,9 @@
 package hello.hellospring.domain;
 
 import jakarta.persistence.*;
+import org.springframework.data.redis.core.RedisHash;
 
+@RedisHash(value = "member", timeToLive = 600)
 @Entity
 public class Member {
     @Id

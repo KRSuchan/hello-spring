@@ -2,22 +2,23 @@ package hello.hellospring.controller;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.service.MemberService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequiredArgsConstructor
+@Slf4j
 public class MemberController {
     private final MemberService memberService;
 
-    @Autowired
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
-    }
     @GetMapping("/members/new")
     public String createForm(){
         return "members/createMemberForm";
